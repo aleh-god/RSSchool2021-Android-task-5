@@ -3,9 +3,15 @@
 Used the following technologies:
 
 Retrofit
+
 Glide
+
 ViewModel
+
 LiveData
+
 Coroutines
+
 Recycler View
+
 Pagination
