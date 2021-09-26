@@ -2,16 +2,10 @@
 
 Used the following technologies:
 
-Retrofit
-
-Glide
-
-ViewModel
-
-LiveData
-
-Coroutines
-
-Recycler View
-
-Pagination
+1. Retrofit
+2. Glide
+3. ViewModel
+4. LiveData
+5. Coroutines
+6. Recycler View
+7. Pagination
