@@ -7,4 +7,4 @@ data class Cat(
     val url: String,
     val width: Int,
     val height: Int
-): Serializable
+) : Serializable

@@ -5,8 +5,8 @@
     <string name="save_pictures">Save pictures</string>
     <string name="title">Android-2021 Task 5</string>
     <string name="subtitle">Pagination list</string>
-    <string name="permission_required_text">test</string>
     <string name="permission_required">Download manager access is required to write external storage.</string>
     <string name="ok">OK</string>
     <string name="permission_granted">Permission is granted. You can download pictures now.</string>
+    <string name="permission_denied">Permission is denied.</string>
 </resources>

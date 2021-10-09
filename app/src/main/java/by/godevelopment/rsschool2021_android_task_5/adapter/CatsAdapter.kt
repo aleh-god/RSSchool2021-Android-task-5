@@ -44,7 +44,7 @@ class CatViewHolder(
     @NonNull
     private val binding: ItemCatsListBinding,
     private val onItemClick: ((cat: Cat) -> Unit)?
-): RecyclerView.ViewHolder(binding.root) {
+) : RecyclerView.ViewHolder(binding.root) {
     fun bindTo(cat: Cat) {
         itemView.setOnClickListener {
             onItemClick?.invoke(cat)

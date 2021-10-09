@@ -16,7 +16,7 @@ class MainViewModel() : ViewModel() {
     var webService: WebApi = Webservice.retrofitService
 
     fun getListData(): Flow<PagingData<Cat>> {
-        return Pager (
+        return Pager(
             config = PagingConfig(pageSize = 10, maxSize = 100),
             pagingSourceFactory = { CatPagingSource(webService) }
         ).flow.cachedIn(viewModelScope)

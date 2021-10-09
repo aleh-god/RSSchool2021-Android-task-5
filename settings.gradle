@@ -3,7 +3,6 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        maven { url "https://maven.xyz.com" }
     }
 }
 rootProject.name = "RSSchool2021-Android-task-5"

@@ -30,8 +30,8 @@ fun Fragment.handlePermission(
 ) {
     when {
         isGranted(permission) -> onGranted.invoke(permission)
-        shouldShowRationale(permission) ->  onRationaleNeeded?.invoke(permission)
-        else ->  onDenied.invoke(permission)
+        shouldShowRationale(permission) -> onRationaleNeeded?.invoke(permission)
+        else -> onDenied.invoke(permission)
     }
 }
 
@@ -71,8 +71,9 @@ private fun Fragment.goToAppDetailsSettings() {
     }
 }
 
-
 private fun mapPermissionsAndResults(
-    permissions: Array<out String>, grantResults: IntArray
-): Map<String, Int> = permissions.mapIndexedTo(mutableListOf<Pair<String, Int>>()
+    permissions: Array<out String>,
+    grantResults: IntArray
+): Map<String, Int> = permissions.mapIndexedTo(
+    mutableListOf<Pair<String, Int>>()
 ) { index, permission -> permission to grantResults[index] }.toMap()

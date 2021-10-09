@@ -3,7 +3,7 @@ package by.godevelopment.rsschool2021_android_task_5.network
 import by.godevelopment.rsschool2021_android_task_5.model.Cat
 import retrofit2.Response
 import retrofit2.http.GET
-import retrofit2.http.Headers
+// import retrofit2.http.Headers
 import retrofit2.http.Query
 
 const val API_KEY = "8d4ccab1-e437-479e-857e-4e002abdb22d"

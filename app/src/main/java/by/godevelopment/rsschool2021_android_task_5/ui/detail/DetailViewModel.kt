@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModelProvider
 import by.godevelopment.rsschool2021_android_task_5.model.Cat
 import by.godevelopment.rsschool2021_android_task_5.userсase.CatDownloadCase
 
-
 class DetailViewModel(private val catDownloadCase: CatDownloadCase) : ViewModel() {
     fun downloadImage(cat: Cat): Long {
         return catDownloadCase.downloadImage(cat)

@@ -5,7 +5,7 @@ import androidx.paging.PagingState
 import by.godevelopment.rsschool2021_android_task_5.model.Cat
 import retrofit2.HttpException
 
-class CatPagingSource(private val webApi: WebApi): PagingSource<Int, Cat>() {
+class CatPagingSource(private val webApi: WebApi) : PagingSource<Int, Cat>() {
     override fun getRefreshKey(state: PagingState<Int, Cat>): Int? {
         val anchorPosition = state.anchorPosition ?: return null
         val anchorPage = state.closestPageToPosition(anchorPosition) ?: return null

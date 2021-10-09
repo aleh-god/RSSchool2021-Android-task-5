@@ -1,7 +1,6 @@
 package by.godevelopment.rsschool2021_android_task_5.ui.detail
 
 import android.Manifest
-import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
@@ -57,7 +56,8 @@ class DetailFragment : Fragment() {
         get() = requireArguments().getSerializable(BUNDLE_KEY) as Cat
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = DetailFragmentBinding.inflate(inflater, container, false)
