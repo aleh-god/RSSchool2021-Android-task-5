@@ -1,0 +1,10 @@
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS) // RepositoriesMode.FAIL_ON_PROJECT_REPOS
+    repositories {
+        google()
+        mavenCentral()
+        maven { url "https://maven.xyz.com" }
+    }
+}
+rootProject.name = "RSSchool2021-Android-task-5"
+include ':app'
