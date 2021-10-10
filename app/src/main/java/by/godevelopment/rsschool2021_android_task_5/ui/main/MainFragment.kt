@@ -20,7 +20,7 @@ import kotlinx.coroutines.flow.collectLatest
 class MainFragment : Fragment() {
     private var _binding: MainFragmentBinding? = null
     private val binding
-    get() = _binding!!
+        get() = _binding!!
 
     private val viewModel: MainViewModel by viewModels()
 
@@ -62,8 +62,6 @@ class MainFragment : Fragment() {
         lifecycleScope.launchWhenCreated {
             viewModel.getListData().collectLatest { PagingData ->
                 catsAdapter.submitData(PagingData)
-                // TODO = "back save state"
-                // viewModel.saveLastPagingData = PagingData
             }
         }
     }

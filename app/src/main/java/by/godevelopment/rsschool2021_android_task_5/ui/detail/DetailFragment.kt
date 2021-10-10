@@ -2,6 +2,7 @@ package by.godevelopment.rsschool2021_android_task_5.ui.detail
 
 import android.Manifest
 import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -18,7 +19,6 @@ import by.godevelopment.rsschool2021_android_task_5.CatApp
 import by.godevelopment.rsschool2021_android_task_5.R
 import by.godevelopment.rsschool2021_android_task_5.databinding.DetailFragmentBinding
 import by.godevelopment.rsschool2021_android_task_5.model.Cat
-import by.godevelopment.rsschool2021_android_task_5.ui.utils.showSnackBar
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.google.android.material.snackbar.Snackbar
@@ -93,38 +93,46 @@ class DetailFragment : Fragment() {
 
     private fun setupClick() {
         binding.buttonSave.setOnClickListener {
-            when {
-                ContextCompat.checkSelfPermission(
-                    requireContext(),
-                    Manifest.permission.WRITE_EXTERNAL_STORAGE
-                ) == PackageManager.PERMISSION_GRANTED -> {
-                    layout.showSnackBar(
-                        it,
-                        getString(R.string.permission_granted),
-                        Snackbar.LENGTH_SHORT,
-                        null
-                    ) {}
-                    downloadImage()
-                }
-                ActivityCompat.shouldShowRequestPermissionRationale(
-                    requireActivity(),
-                    Manifest.permission.WRITE_EXTERNAL_STORAGE
-                ) -> {
-                    layout.showSnackBar(
-                        it,
-                        getString(R.string.permission_required),
-                        Snackbar.LENGTH_SHORT,
-                        getString(R.string.ok)
-                    ) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
+            {
+                Log.i("Permission: ", ">= Build.VERSION_CODES.Q")
+                downloadImage()
+            } else {
+                when {
+                    ContextCompat.checkSelfPermission(
+                        requireContext(),
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE
+                    ) == PackageManager.PERMISSION_GRANTED -> {
+                        Log.i("Permission: ", "Granted")
+                        Snackbar.make(
+                            binding.root,
+                            R.string.permission_granted,
+                            Snackbar.LENGTH_SHORT
+                        )
+                            .show()
+                        downloadImage()
+                    }
+                    ActivityCompat.shouldShowRequestPermissionRationale(
+                        requireActivity(),
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE
+                    ) -> {
+                        Log.i("Permission: ", "ShowRequestPermissionRationale")
+                        Snackbar.make(
+                            binding.root,
+                            R.string.permission_required,
+                            Snackbar.LENGTH_SHORT
+                        )
+                            .show()
                         requestPermissionLauncher.launch(
                             Manifest.permission.WRITE_EXTERNAL_STORAGE
                         )
                     }
-                }
-                else -> {
-                    requestPermissionLauncher.launch(
-                        Manifest.permission.WRITE_EXTERNAL_STORAGE
-                    )
+                    else -> {
+                        Log.i("Permission: ", "else")
+                        requestPermissionLauncher.launch(
+                            Manifest.permission.WRITE_EXTERNAL_STORAGE
+                        )
+                    }
                 }
             }
         }

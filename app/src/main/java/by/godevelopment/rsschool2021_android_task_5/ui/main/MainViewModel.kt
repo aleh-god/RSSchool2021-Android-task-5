@@ -21,7 +21,4 @@ class MainViewModel() : ViewModel() {
             pagingSourceFactory = { CatPagingSource(webService) }
         ).flow.cachedIn(viewModelScope)
     }
-
-    // TODO = "back save state model"
-    var saveLastPagingData: PagingData<Cat>? = null
 }
