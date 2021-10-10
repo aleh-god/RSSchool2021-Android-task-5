@@ -12,7 +12,7 @@ import by.godevelopment.rsschool2021_android_task_5.network.WebApi
 import by.godevelopment.rsschool2021_android_task_5.network.Webservice
 import kotlinx.coroutines.flow.Flow
 
-class MainViewModel() : ViewModel() {
+class MainViewModel : ViewModel() {
     var webService: WebApi = Webservice.retrofitService
 
     fun getListData(): Flow<PagingData<Cat>> {
